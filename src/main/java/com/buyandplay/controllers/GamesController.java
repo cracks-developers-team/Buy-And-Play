@@ -20,4 +20,9 @@ public class GamesController {
         return "/juegos/listaJuegos";
     }
     
+    @RequestMapping("/create")
+    public String formJuegos(){
+        return "/juegos/formJuegos";
+    }
+    
 }

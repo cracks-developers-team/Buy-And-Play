@@ -14,6 +14,17 @@ public class Videojuego {
     private double calificacion;
     private int unidadesVendidas = 10;
     private String portada;
+    private String creador;
+
+    public String getCreador() {
+        return creador;
+    }
+
+    public void setCreador(String creador) {
+        this.creador = creador;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -105,8 +116,9 @@ public class Videojuego {
 
     @Override
     public String toString() {
-        return "Videojuego{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", categoria=" + categoria + ", lanzamiento=" + lanzamiento + ", idconsola=" + idconsola + ", precio=" + precio + ", stock=" + stock + ", calidicacion=" + calificacion + ", unidadesVendidas=" + unidadesVendidas + ", portada=" + portada + '}';
+        return "Videojuego{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", categoria=" + categoria + ", lanzamiento=" + lanzamiento + ", idconsola=" + idconsola + ", precio=" + precio + ", stock=" + stock + ", calificacion=" + calificacion + ", unidadesVendidas=" + unidadesVendidas + ", portada=" + portada + ", creador=" + creador + '}';
     }
+
 
     
     
