@@ -11,7 +11,7 @@ public class Videojuego {
     private int idconsola = 1;
     private double precio;
     private int stock = 10;
-    private double calidicacion;
+    private double calificacion;
     private int unidadesVendidas = 10;
     private String portada;
 
@@ -79,12 +79,12 @@ public class Videojuego {
         this.stock = stock;
     }
 
-    public double getCalidicacion() {
-        return calidicacion;
+    public double getCalificacion() {
+        return calificacion;
     }
 
-    public void setCalidicacion(double calidicacion) {
-        this.calidicacion = calidicacion;
+    public void setCalificacion(double calificacion) {
+        this.calificacion = calificacion;
     }
 
     public int getUnidadesVendidas() {
@@ -105,7 +105,7 @@ public class Videojuego {
 
     @Override
     public String toString() {
-        return "Videojuego{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", categoria=" + categoria + ", lanzamiento=" + lanzamiento + ", idconsola=" + idconsola + ", precio=" + precio + ", stock=" + stock + ", calidicacion=" + calidicacion + ", unidadesVendidas=" + unidadesVendidas + ", portada=" + portada + '}';
+        return "Videojuego{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", categoria=" + categoria + ", lanzamiento=" + lanzamiento + ", idconsola=" + idconsola + ", precio=" + precio + ", stock=" + stock + ", calidicacion=" + calificacion + ", unidadesVendidas=" + unidadesVendidas + ", portada=" + portada + '}';
     }
 
     

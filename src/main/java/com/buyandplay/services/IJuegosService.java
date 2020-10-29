@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IJuegosService {
     List<Videojuego> buscarTodos();
+    
+    Videojuego buscarPorId(int juegoId);
 }
