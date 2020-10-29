@@ -20,6 +20,7 @@ public class JuegosServiceImpl implements IJuegosService {
             juego1.setCategoria("Accion");
             juego1.setPrecio(800.99);
             juego1.setPortada("portada1.jpg");
+            juego1.setLanzamiento(2015);
 
             Videojuego juego2 = new Videojuego();
             juego2.setId(2);
@@ -27,6 +28,7 @@ public class JuegosServiceImpl implements IJuegosService {
             juego2.setCategoria("Guerra");
             juego2.setPrecio(1200);
             juego2.setPortada("portada2.jpeg");
+            juego2.setLanzamiento(2018);
 
             Videojuego juego3 = new Videojuego();
             juego3.setId(3);
@@ -34,6 +36,7 @@ public class JuegosServiceImpl implements IJuegosService {
             juego3.setCategoria("Fantasia");
             juego3.setPrecio(1100);
             juego3.setPortada("portada3.jpg");
+            juego3.setLanzamiento(2020);
 
             Videojuego juego4 = new Videojuego();
             juego4.setId(4);
@@ -41,6 +44,7 @@ public class JuegosServiceImpl implements IJuegosService {
             juego4.setCategoria("Fantasia");
             juego4.setPrecio(800);
             juego4.setPortada("portada4.jpg");
+            juego4.setLanzamiento(2019);
 
             lista.add(juego1);
             lista.add(juego2);
