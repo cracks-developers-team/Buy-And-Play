@@ -21,6 +21,7 @@ public class JuegosServiceImpl implements IJuegosService {
             juego1.setPrecio(800.99);
             juego1.setPortada("portada1.jpg");
             juego1.setLanzamiento(2015);
+            juego1.setStock(0);
 
             Videojuego juego2 = new Videojuego();
             juego2.setId(2);

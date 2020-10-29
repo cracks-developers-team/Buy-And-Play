@@ -10,62 +10,71 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Listado de Videojuegos</title>
-    <spring:url value="/resources" var="urlResources"></spring:url>
-    <spring:url value="/" var="urlRoot"></spring:url>
-    <link href="${urlResources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${urlResources}/bootstrap/css/theme.css" rel="stylesheet">
+        <spring:url value="/resources" var="urlResources"></spring:url>
+        <spring:url value="/" var="urlRoot"></spring:url>
+        <link href="${urlResources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${urlResources}/bootstrap/css/theme.css" rel="stylesheet">
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <!-- Fixed navbar -->
-    <jsp:include page="../includes/navmenu.jsp"></jsp:include>
+        <!-- Fixed navbar -->
+        <jsp:include page="../includes/navmenu.jsp"></jsp:include>
 
-        <div class="container theme-showcase" role="main">
+            <div class="container theme-showcase" role="main">
 
-            <h3>Listado de Videojuegos</h3>
+                <h3>Listado de Videojuegos</h3>
 
-            <a href="#" class="btn btn-success" role="button" title="Nueva Juego" >Nuevo</a><br><br>
+                <a href="#" class="btn btn-success" role="button" title="Nueva Juego" >Nuevo</a><br><br>
 
-            <div class="table-responsive">
-                <table class="table table-hover table-striped table-bordered">
-                    <tr>
-                        <th>Titulo</th>
-                        <th>Genero</th>
-                        <th>Precio</th>
-                        <th>Año Estreno</th>
-                        <th>Stock</th>
-                        <th>Opciones</th>
-                    </tr>
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered">
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Genero</th>
+                            <th>Precio</th>
+                            <th>Año Estreno</th>
+                            <th>Stock</th>
+                            <th>Opciones</th>
+                        </tr>
                     <c:forEach items="${juegos}" var="juego">
-                    <tr>
-                        <td>${juego.titulo}</td>
-                        <td>${juego.categoria}</td>
-                        <td>${juego.precio}</td>
-                        <td>${juego.lanzamiento}</td>
-                        <td>${juego.stock}</td>
-                        <td>
-                            <a href="#" class="btn btn-success btn-sm" role="button" title="Edit" ><span class="glyphicon glyphicon-pencil"></span></a>
-                            <a href="#" class="btn btn-danger btn-sm" role="button" title="Eliminar" ><span class="glyphicon glyphicon-trash"></span></a>
-                        </td>
-                    </tr>
-                </c:forEach>
+                        <tr>
+                            <td>${juego.titulo}</td>
+                            <td>${juego.categoria}</td>
+                            <td>${juego.precio}</td>
+                            <td>${juego.lanzamiento}</td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${juego.stock > 0}">
+                                        <span class="label label-success">${juego.stock}</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-danger">${juego.stock}</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm" role="button" title="Edit" ><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="#" class="btn btn-danger btn-sm" role="button" title="Eliminar" ><span class="glyphicon glyphicon-trash"></span></a>
+                            </td>
+                        </tr>
+                    </c:forEach>
 
-            </table>
-        </div>
+                </table>
+            </div>
 
-        <hr class="featurette-divider">
+            <hr class="featurette-divider">
 
-        <!-- FOOTER -->
-        <jsp:include page="../includes/footer.jsp"></jsp:include>
+            <!-- FOOTER -->
+            <jsp:include page="../includes/footer.jsp"></jsp:include>
 
-        </div> <!-- /container -->
+            </div> <!-- /container -->
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
-        <script src="${urlResources}/bootstrap/js/bootstrap.min.js"></script>     
-</body>
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+            <script src="${urlResources}/bootstrap/js/bootstrap.min.js"></script>     
+    </body>
 </html>
