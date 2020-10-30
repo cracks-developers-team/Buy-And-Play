@@ -28,7 +28,7 @@
 	<h3 class="blog-title"><span class="label label-success">Datos del Videojuego</span></h3>
       </div>
 
-      <form>
+        <form action="${urlRoot}games/save" method="get">
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
