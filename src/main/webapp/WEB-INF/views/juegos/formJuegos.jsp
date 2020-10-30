@@ -50,8 +50,8 @@
           </div>
           <div class="col-sm-3">
             <div class="form-group">
-              <label for="genero" class="control-label">Genero</label>              
-              <select id="genero" name="genero" class="form-control">
+              <label for="categoria" class="control-label">Categoria</label>              
+              <select id="categoria" name="categoria" class="form-control">
                 <option value="Accion">Accion</option>
                 <option value="Aventura">Aventura</option>
                 <option value="Carreras">Carreras</option>                  

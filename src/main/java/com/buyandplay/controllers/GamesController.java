@@ -40,10 +40,8 @@ public class GamesController {
             }
             return "/juegos/formJuegos";
         }
-        System.out.print("Titulo del nuevo juego:" + juego.getTitulo());
+        juegosservice.guardarJuego(juego);
         attributes.addFlashAttribute("mensaje", "Se registró correctamente");
         return "redirect:/games/indice";
-        
     }
-    
 }

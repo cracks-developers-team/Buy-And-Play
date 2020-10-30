@@ -70,4 +70,10 @@ public class JuegosServiceImpl implements IJuegosService {
         }
         return null;
     }
+
+    @Override
+    public void guardarJuego(Videojuego juego) {
+        lista.add(juego);
+        System.out.println("Lista de juegos:" + lista);
+    }
 }

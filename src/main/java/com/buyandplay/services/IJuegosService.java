@@ -8,4 +8,6 @@ public interface IJuegosService {
     List<Videojuego> buscarTodos();
     
     Videojuego buscarPorId(int juegoId);
+    
+    void guardarJuego(Videojuego juego);
 }

@@ -49,7 +49,7 @@
                         <tr>
                             <td>${juego.titulo}</td>
                             <td>${juego.categoria}</td>
-                            <td>${juego.precio}</td>
+                            <td>$${juego.precio}</td>
                             <td>${juego.lanzamiento}</td>
                             <td>
                                 <c:choose>
