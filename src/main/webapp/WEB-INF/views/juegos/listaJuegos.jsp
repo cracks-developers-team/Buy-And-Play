@@ -26,18 +26,25 @@
 
                 <h3>Listado de Videojuegos</h3>
 
-                <a href="#" class="btn btn-success" role="button" title="Nueva Juego" >Nuevo</a><br><br>
+            <c:if test="${mensaje != null}">
+                <div class="alert alert-success" role="alert">
+                    ${mensaje}
+                </div>
+            </c:if>
 
-                <div class="table-responsive">
-                    <table class="table table-hover table-striped table-bordered">
-                        <tr>
-                            <th>Titulo</th>
-                            <th>Genero</th>
-                            <th>Precio</th>
-                            <th>Año Estreno</th>
-                            <th>Stock</th>
-                            <th>Opciones</th>
-                        </tr>
+
+            <a href="#" class="btn btn-success" role="button" title="Nueva Juego" >Nuevo</a><br><br>
+
+            <div class="table-responsive">
+                <table class="table table-hover table-striped table-bordered">
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Genero</th>
+                        <th>Precio</th>
+                        <th>Año Estreno</th>
+                        <th>Stock</th>
+                        <th>Opciones</th>
+                    </tr>
                     <c:forEach items="${juegos}" var="juego">
                         <tr>
                             <td>${juego.titulo}</td>
