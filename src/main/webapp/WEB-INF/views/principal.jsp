@@ -12,6 +12,7 @@
         <meta name="author" content="">
         <title>CineSite | Bienvenido</title>
         <spring:url value="/resources" var="urlResources"/>
+        <spring:url value="/" var="urlRoot"></spring:url>
         <link href="${urlResources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="${urlResources}/bootstrap/css/theme.css" rel="stylesheet">
 
@@ -35,13 +36,13 @@
                     <!-- Image Size 1140 x 250 -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">         
-                            <img src="${urlResources}/images/banner1.jpg" alt="Slide" title="Some text" width="1140" height="150">
+                            <img src="${urlResources}/images/banner1.jpg" alt="Slide" title="Some text" >
                     </div>
                     <div class="item">         
-                        <img src="${urlResources}/images/banner2.jpg" alt="Slide" title="Some text" width="1140" height="150">
+                        <img src="${urlResources}/images/banner2.jpg" alt="Slide" title="Some text" ">
                     </div>
                     <div class="item">         
-                        <img src="${urlResources}/images/banner3.jpg" alt="Slide" title="Some text" width="1140" height="150">
+                        <img src="${urlResources}/images/banner3.jpg" alt="Slide" title="Some text" >
                     </div>
                 </div>
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -57,14 +58,20 @@
             <div class="row page-header">          
                 <div class="col-lg-12">         
                     <h2 class="text text-center"><span class="label label-success">LOS MÁS VENDIDOS</span></h2>          
-                    <form class="form-inline" action="#" method="post">
+                    <form class="form-inline" action="${urlRoot}search" method="post">
                         <div class="form-group">
-                            <label for="fecha">Categoria: </label>
-                            <select id="fecha" name="fecha" class="form-control">
-                                <option value="01-05-2017">Accion</option>
-                                <option value="02-05-2017">Carreras</option>
-                                <option value="03-05-2017">Aventuras</option>
-                                <option value="04-05-2017">RPG</option>                
+                            <label for="categoria">Categoria: </label>
+                            <select id="categoria" name="categoria" class="form-control">
+                                <c:forEach items="${categorias}" var="categoria">
+                                    <c:choose>
+                                        <c:when test="${categoria == selected}">
+                                            <option value="${categoria}" selected>${categoria}</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${categoria}">${categoria}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>                
                             </select>
                         </div>            
                         <button type="submit" class="btn btn-primary">Filtrar</button>
@@ -128,13 +135,13 @@
 
             <!-- FOOTER -->
             <jsp:include page="includes/footer.jsp"></jsp:include>
-        </div> <!-- /container -->
+            </div> <!-- /container -->
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
-        <script src="${urlResources}/bootstrap/js/bootstrap.min.js"></script> 
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+            <script src="${urlResources}/bootstrap/js/bootstrap.min.js"></script> 
     </body>
 </html>
 
