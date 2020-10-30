@@ -249,11 +249,11 @@ create procedure sp_status_ins
 CREATE TABLE ordenes(
     ord_id int (5) AUTO_INCREMENT,
     ord_usu_id int (5) NOT NULL,
+    ord_usu_nom varchar (100) NOT NULL,
     ord_prod_id int (5) NOT NULL,
+    ord_prod_nom varchar (100) NOT NULL,
     ord_cantidad int (3) NOT NULL,
     ord_direccion_entrega varchar (200) NOT NULL,
-    ord_cp_entrega int (5) NOT NULL,
-    ord_ciudad_entrega varchar (20) NOT NULL,
     ord_tipo_pago varchar (30) NOT NULL,
     ord_fecha_pago date NOT NULL,
     PRIMARY KEY (ord_id),
@@ -262,7 +262,26 @@ CREATE TABLE ordenes(
 );
 
 -- Procedimiento almacenado para llenar la tabla orden_detalles
-
+delimiter //
+create procedure sp_ordenes_ins
+	(
+		ord_usu_id int (5),
+		ord_prod_id int (5),
+		ord_cantidad int (3),
+		ord_tipo_pago varchar (30),
+		ord_fecha_pago date
+	)
+	BEGIN
+	set @user = (select usu_nombre from usuarios where usuarios.usu_id = ord_usu_id);
+	set @prod = (select prod_nombre from productos where productos.prod_id = ord_prod_id);
+	set @dom = (select usu_domicilio from usuarios where usuarios.usu_id = ord_usu_id);
+	insert into ordenes values 
+		(
+			ord_id, ord_usu_id,@user,ord_prod_id,@prod,
+			ord_cantidad,@dom,ord_tipo_pago,ord_fecha_pago
+		);
+		END //
+		delimiter ;
 
 --//Tabla orden_detalles
 
