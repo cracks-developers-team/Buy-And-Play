@@ -14,6 +14,7 @@ public class JuegosServiceImpl implements IJuegosService {
 
         try {
             lista = new LinkedList<>();
+            
             Videojuego juego1 = new Videojuego();
             juego1.setId(1);
             juego1.setTitulo("Battlefield 1");
@@ -63,7 +64,7 @@ public class JuegosServiceImpl implements IJuegosService {
 
     @Override
     public Videojuego buscarPorId(int juegoId){
-        for (Videojuego juego : buscarTodos()) {
+        for (Videojuego juego : lista) {
             if (juego.getId() == juegoId) {
                 return juego;
             }
