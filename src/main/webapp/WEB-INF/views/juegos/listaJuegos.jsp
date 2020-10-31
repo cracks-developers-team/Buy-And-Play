@@ -33,7 +33,7 @@
             </c:if>
 
 
-            <a href="#" class="btn btn-success" role="button" title="Nueva Juego" >Nuevo</a><br><br>
+            <a href="${urlRoot}games/create" class="btn btn-success" role="button" title="Nueva Juego" >Nuevo</a><br><br>
 
             <div class="table-responsive">
                 <table class="table table-hover table-striped table-bordered">
