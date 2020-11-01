@@ -1,6 +1,8 @@
 package com.buyandplay.controllers;
 
+import com.buyandplay.model.Banner;
 import com.buyandplay.model.Videojuego;
+import com.buyandplay.services.IBannerService;
 import com.buyandplay.services.IJuegosService;
 import com.buyandplay.util.utileria;
 import java.util.LinkedList;
@@ -18,10 +20,16 @@ public class HomeController {
 
     @Autowired
     private IJuegosService juegoservice;
+    
+    @Autowired
+    private IBannerService bannerservice;
 
     @RequestMapping("/")
     public String mostrarPrincipal(Model modelo) {
         List<Videojuego> lista = juegoservice.buscarTodos();
+        List<Banner> banners = bannerservice.buscarTodos();
+        
+        modelo.addAttribute("banners", banners);
         modelo.addAttribute("videojuegos", lista);
         modelo.addAttribute("categorias", utileria.generarCategorias());
         return "principal";
@@ -43,6 +51,9 @@ public class HomeController {
     @PostMapping("/search")
     public String filtrar(Model modelo,String categoria){
         modelo.addAttribute("videojuegos", juegoservice.buscarTodos());
+        List<Banner> banners = bannerservice.buscarTodos();
+        
+        modelo.addAttribute("banners", banners);
         modelo.addAttribute("categorias", utileria.generarCategorias());
         modelo.addAttribute("selected", categoria);
         

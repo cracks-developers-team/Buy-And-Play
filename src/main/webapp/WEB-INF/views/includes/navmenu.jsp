@@ -17,7 +17,8 @@
           <ul class="nav navbar-nav">            
             <li><a href="#">Acerca</a></li>
             <li><a href="#">Login</a></li> 
-            <li><a href="${urlRoot}games/indice">Videojuegos</a></li>            
+            <li><a href="${urlRoot}games/indice">Videojuegos</a></li>
+            <li><a href="${urlRoot}banners/index">Banners</a></li>            
           </ul>
         </div><!--/.nav-collapse -->
       </div>
