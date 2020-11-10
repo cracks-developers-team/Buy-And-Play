@@ -149,7 +149,7 @@ CREATE TABLE productos(
     pro_cat_nom varchar (20) NULL,
     prod_year_lanzamiento int (4) NOT NULL,
     prod_id_consola int (5) NOT NULL,
-    prod_consola_nom varchar (20) NULL,
+    prod_portada varchar (100) NULL,
     prod_precio decimal (7,2) NOT NULL,
     prod_stock int (5) NOT NULL,
     prod_calificacion decimal (2,1) NOT NULL,
@@ -173,6 +173,7 @@ create procedure sp_productos_ins
   prod_id_categoria int (5),
   prod_year_lanzamiento int (4),
   prod_id_consola int (5),
+  prod_portada varchar (100),	  
   prod_precio decimal (7,2),
   prod_stock int (5),
   prod_calificacion decimal (2,1),
@@ -180,13 +181,12 @@ create procedure sp_productos_ins
   )
   BEGIN
   set @cat = (select cat_nombre from categorias where categorias.cat_id = prod_id_categoria);
-  set @cons = (select cons_nombre from consolas where consolas.cons_id = prod_id_consola);
   insert into productos values
     (
       prod_id,prod_nombre,prod_desarrollador,prod_desc,
       prod_id_categoria,@cat,
       prod_year_lanzamiento,prod_id_consola,
-      @cons,prod_precio,prod_stock,
+      prod_portada,prod_precio,prod_stock,
       prod_calificacion,prod_uni_vendidas
     );
     END //
