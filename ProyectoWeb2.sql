@@ -298,5 +298,28 @@ CREATE TABLE orden_detalles(
     FOREIGN KEY (est_id) REFERENCES estatus (est_id)
 );
 
+-- Tabla shipper 
 
--- Prueba de proyecto
+create table shipper 
+  (
+    shipper_id int not null AUTO_INCREMENT,
+    shipper_nombre varchar (100) not null,
+    PRIMARY KEY (shipper_id)
+  );
+
+  --Trigger para llenar la tabla orden_detalles después de llena la tabla órdenes
+
+delimiter //
+create trigger tg_orden_detalles
+  after insert on ordenes for each row
+  BEGIN
+  set @shipper = (select shipper_nombre from shipper order by shipper_id desc limit 1 );
+  set @precio = (select prod_precio from productos where new.ord_prod_id = prod_id);
+  set @total = @precio * new.ord_cantidad;
+  set @estatus = (select est_id from estatus order by est_id desc limit 1);
+  insert into shipper values 
+    (
+      new.ord_id,@precio,@total,new.ord_fecha_pago,@shipper,@estatus
+    );
+    END //
+    delimiter ;
