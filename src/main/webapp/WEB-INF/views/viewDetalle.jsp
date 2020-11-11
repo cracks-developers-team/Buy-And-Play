@@ -45,7 +45,7 @@
 									Título Original : ${juego.titulo} <br>
                                                                         Descipcion : ${juego.descripcion} <br>
 									Precio: ${juego.precio} <br>
-									Categoria: ${juego.categoria} <br>                  
+									Categoria: ${juego.id_categoria} <br>                  
 									Año de Estreno: ${juego.lanzamiento} <br>
                                                                         Calificacion : ${juego.calificacion} <br> <br>
                                                                         <a href="" class="btn btn-success" role="button" title="Agregar carrito" >Agregar al carrito</a><br><br> 
@@ -68,22 +68,12 @@
 								<h3 class="panel-title">Trailer</h3>
 							</div>
 							<div class="panel-body">
-								<iframe width="100%" height="315" 
-												src="#" >                          
+								<iframe width="100%" height="315" src="${juego.url}" >                          
 								</iframe>
 							</div>
 						</div>           
 					</div> 
-					<div class="col-sm-5">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">SINOPSIS</h3>
-							</div>
-							<div class="panel-body">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</div>
-						</div>                          
-					</div>
+					
 				</div>
 
 			</div><!-- /.container -->

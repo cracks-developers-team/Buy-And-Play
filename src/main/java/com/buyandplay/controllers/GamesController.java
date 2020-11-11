@@ -2,6 +2,7 @@
 package com.buyandplay.controllers;
 
 import com.buyandplay.model.Videojuego;
+import com.buyandplay.repository.VideojuegoRepository;
 import com.buyandplay.services.IJuegosService;
 import com.buyandplay.util.utileria;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +25,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class GamesController {
     
     @Autowired
-    IJuegosService juegosservice;
+    private VideojuegoRepository juegoRepo;
+    
+    @Autowired
+    private IJuegosService juegosservice;
     
     @RequestMapping("/indice")
     public String listarJuegos(Model modelo){
@@ -31,12 +37,13 @@ public class GamesController {
     }
     
     @RequestMapping("/create")
-    public String formJuegos(){
+    public String formJuegos(@ModelAttribute Videojuego juego, Model modelo){
+        modelo.addAttribute("juego", juego);
         return "/juegos/formJuegos";
     }
     
     @PostMapping("/save")
-    public String guardar(RedirectAttributes attributes,Videojuego juego,BindingResult result,
+    public String guardar(RedirectAttributes attributes,@ModelAttribute Videojuego juego,BindingResult result,
                         @RequestParam("archivoImagen") MultipartFile multipart,HttpServletRequest request){
         
         if(result.hasErrors()){
@@ -53,5 +60,21 @@ public class GamesController {
         juegosservice.guardarJuego(juego);
         attributes.addFlashAttribute("mensaje", "Se registró correctamente");
         return "redirect:/games/indice";
+    }
+    
+    @GetMapping("edit/{id}")
+    public String editar(@PathVariable("id") int idJuego,Model modelo){
+        Videojuego juego = juegosservice.buscarPorId(idJuego);
+        modelo.addAttribute("juego", juego);
+        return "juegos/formJuegos";
+        
+    }
+    
+    @GetMapping("delete/{id}")
+    public String eliminar(@PathVariable("id")int idJuego, RedirectAttributes attributes){
+        attributes.addFlashAttribute("mensaje", "Se eliminó de forma correcta");
+        juegoRepo.deleteById(idJuego);
+        return "redirect:/games/indice";
+        
     }
 }

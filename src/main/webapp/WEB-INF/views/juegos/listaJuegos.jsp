@@ -11,6 +11,8 @@
         <meta name="author" content="">
         <title>Listado de Videojuegos</title>
         <spring:url value="/resources" var="urlResources"></spring:url>
+        <spring:url value="/games/edit" var="urlEdit"></spring:url>
+        <spring:url value="/games/delete" var="urlDelete"></spring:url>
         <spring:url value="/" var="urlRoot"></spring:url>
         <link href="${urlResources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="${urlResources}/bootstrap/css/theme.css" rel="stylesheet">
@@ -48,7 +50,7 @@
                     <c:forEach items="${juegos}" var="juego">
                         <tr>
                             <td>${juego.titulo}</td>
-                            <td>${juego.categoria}</td>
+                            <td>${juego.id_categoria}</td>
                             <td>$${juego.precio}</td>
                             <td>${juego.lanzamiento}</td>
                             <td>
@@ -62,8 +64,8 @@
                                 </c:choose>
                             </td>
                             <td>
-                                <a href="#" class="btn btn-success btn-sm" role="button" title="Edit" ><span class="glyphicon glyphicon-pencil"></span></a>
-                                <a href="#" class="btn btn-danger btn-sm" role="button" title="Eliminar" ><span class="glyphicon glyphicon-trash"></span></a>
+                                <a href="${urlEdit}/${juego.id}" class="btn btn-success btn-sm" role="button" title="Edit" ><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="${urlDelete}/${juego.id}" class="btn btn-danger btn-sm" role="button" title="Eliminar" ><span class="glyphicon glyphicon-trash"></span></a>
                             </td>
                         </tr>
                     </c:forEach>

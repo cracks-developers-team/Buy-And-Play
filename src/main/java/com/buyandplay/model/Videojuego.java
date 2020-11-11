@@ -1,30 +1,31 @@
 
 package com.buyandplay.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "productos")
 public class Videojuego {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String titulo;
+    private String desarrollador;
     private String descripcion;
-    private String categoria;
+    private int id_categoria;
     private int lanzamiento;
-    private int idconsola = 1;
+    private int id_consola = 1;
+    private String portada = "portada1.jpg";
     private double precio;
     private int stock = 10;
     private double calificacion;
-    private int unidadesVendidas = 10;
-    private String portada;
-    private String creador;
-
-    public String getCreador() {
-        return creador;
-    }
-
-    public void setCreador(String creador) {
-        this.creador = creador;
-    }
-    
-    
+    private int uni_vendidas;
+    private String url;
 
     public int getId() {
         return id;
@@ -42,6 +43,14 @@ public class Videojuego {
         this.titulo = titulo;
     }
 
+    public String getDesarrollador() {
+        return desarrollador;
+    }
+
+    public void setDesarrollador(String desarrollador) {
+        this.desarrollador = desarrollador;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -50,12 +59,12 @@ public class Videojuego {
         this.descripcion = descripcion;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public int getId_categoria() {
+        return id_categoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setId_categoria(int id_categoria) {
+        this.id_categoria = id_categoria;
     }
 
     public int getLanzamiento() {
@@ -66,12 +75,20 @@ public class Videojuego {
         this.lanzamiento = lanzamiento;
     }
 
-    public int getIdconsola() {
-        return idconsola;
+    public int getId_consola() {
+        return id_consola;
     }
 
-    public void setIdconsola(int idconsola) {
-        this.idconsola = idconsola;
+    public void setId_consola(int id_consola) {
+        this.id_consola = id_consola;
+    }
+
+    public String getPortada() {
+        return portada;
+    }
+
+    public void setPortada(String portada) {
+        this.portada = portada;
     }
 
     public double getPrecio() {
@@ -98,31 +115,26 @@ public class Videojuego {
         this.calificacion = calificacion;
     }
 
-    public int getUnidadesVendidas() {
-        return unidadesVendidas;
+    public int getUni_vendidas() {
+        return uni_vendidas;
     }
 
-    public void setUnidadesVendidas(int unidadesVendidas) {
-        this.unidadesVendidas = unidadesVendidas;
+    public void setUni_vendidas(int uni_vendidas) {
+        this.uni_vendidas = uni_vendidas;
     }
 
-    public String getPortada() {
-        return portada;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPortada(String portada) {
-        this.portada = portada;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
     public String toString() {
-        return "Videojuego{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", categoria=" + categoria + ", lanzamiento=" + lanzamiento + ", idconsola=" + idconsola + ", precio=" + precio + ", stock=" + stock + ", calificacion=" + calificacion + ", unidadesVendidas=" + unidadesVendidas + ", portada=" + portada + ", creador=" + creador + '}';
+        return "Videojuego{" + "id=" + id + ", titulo=" + titulo + ", desarrollador=" + desarrollador + ", descripcion=" + descripcion + ", id_categoria=" + id_categoria + ", lanzamiento=" + lanzamiento + ", id_consola=" + id_consola + ", portada=" + portada + ", precio=" + precio + ", stock=" + stock + ", calificacion=" + calificacion + ", uni_vendidas=" + uni_vendidas + ", url=" + url + '}';
     }
 
-
-    
-    
-    
-    
     
 }

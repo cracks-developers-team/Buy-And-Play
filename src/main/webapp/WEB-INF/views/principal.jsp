@@ -101,7 +101,7 @@
                             <h4>
                                 <span class="label label-default">C</span>
                                 <span class="label label-default">${juego.precio} min</span>
-                                <span class="label label-default">${juego.categoria}</span>
+                                <span class="label label-default">${juego.id_categoria}</span>
                             </h4>         
                             <p><a class="btn btn-sm btn-primary" href="detalle?idJuego=${juego.id}" role="button">Detalles &raquo;</a></p>
                         </div>
