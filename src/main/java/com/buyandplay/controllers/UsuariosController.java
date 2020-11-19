@@ -39,6 +39,8 @@ public class UsuariosController {
             }
         }
         System.out.println(usuario.toString());
+        //System.out.println("{noop}" + usuario.getPassword());
+        usuario.setPassword("{noop}" + usuario.getPassword());
         usuariosService.guardar(usuario);
         redirect.addFlashAttribute("mensaje", "Se registro correctamente");
         return "redirect:/users/signin";

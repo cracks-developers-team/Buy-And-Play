@@ -59,5 +59,10 @@ public class HomeController {
         
         return "principal";
     }
+    
+    @RequestMapping("/formLogin")
+    public String iniciarSesion(){
+        return "formLogin";
+    }
 
 }
