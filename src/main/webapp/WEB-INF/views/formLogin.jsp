@@ -28,7 +28,7 @@
                 <img src="${urlResources}/images/login.png" width="136" height="136" class="center"/>
 
             <form class="form-signin" action="${urlRoot}login" method="post">  
-                
+
                 <c:if test="${param.error != null}">
                     <img src="${urlResources}/images/error.png" width="48" height="48" class="center"/>
                     <h4 class="form-signin-heading" style="color:red">Acceso denegado: Usuario y/o contraseña incorrectos</h4>
@@ -40,7 +40,11 @@
                 <label for="password" class="sr-only">Contraseña</label>
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+
+                <div class="row">
+                    <div class="col-lg-6"><button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button></div>
+                    <div class="col-lg-6"><a href="${urlRoot}users/signin"" class="btn btn-lg btn-success btn-block">Registrarse</a></div>
+                </div>
             </form>
 
         </div> <!-- /container -->

@@ -20,6 +20,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="${urlRoot}formLogin">Login</a></li> 
+            <li><a href="${urlRoot}users/signin">Registrate</a></li> 
           </ul>
         </div><!--/.nav-collapse -->
         </sec:authorize>
