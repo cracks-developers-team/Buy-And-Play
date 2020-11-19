@@ -1,7 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib  uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib  uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@page contentType="text-html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -61,9 +61,13 @@
                         <div class="form-group">
                             <label for="categoria" class="control-label">Categoria</label>              
                             <form:select id="categoria" path="id_categoria" class="form-control">
-                                <form:option value="1">Accion</form:option>
-                                <form:option value="2">Aventura</form:option>
-                                <form:option value="3">Carreras</form:option>                  
+                                <form:option value="1">FPS</form:option>
+                                <form:option value="2">RPG</form:option>
+                                <form:option value="3">Survival Horror</form:option>
+                                <form:option value="4">Plataformas</form:option>
+                                <form:option value="5">Deportivo</form:option>
+                                <form:option value="6">Estrategia</form:option>
+                                <form:option value="7">Shooter</form:option>                  
                             </form:select>             
                         </div> 
                     </div>
