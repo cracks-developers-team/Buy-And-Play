@@ -50,7 +50,7 @@
                     <c:forEach items="${juegos}" var="juego">
                         <tr>
                             <td>${juego.titulo}</td>
-                            <td>${juego.id_categoria}</td>
+                            <td>${juego.categoria.cat_nombre}</td>
                             <td>$${juego.precio}</td>
                             <td>${juego.lanzamiento}</td>
                             <td>

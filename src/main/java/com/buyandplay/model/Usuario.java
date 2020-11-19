@@ -11,20 +11,30 @@ import javax.persistence.Table;
 @Table(name = "usuarios")
 public class Usuario {
 
-    private int id;
-    private String nombre;
-    private String apellido;
-    private Date fecha_nac;
-    private String sexo;
-    private String domicilio;
-    private String telefono;
-    private String email;
-    private String username;
-    private String password;
-    private String tipo = "CLIENTE";
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    private String nombre;
+    
+    private String apellido;
+    
+    private Date fecha_nac;
+    
+    private String sexo;
+    
+    private String domicilio;
+    
+    private String telefono;
+    
+    private String email;
+    
+    private String username;
+    
+    private String password;
+    
+    private String tipo = "CLIENTE";
+
     public int getId() {
         return id;
     }

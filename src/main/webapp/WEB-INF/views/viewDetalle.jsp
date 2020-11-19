@@ -45,7 +45,7 @@
 									Título Original : ${juego.titulo} <br>
                                                                         Descipcion : ${juego.descripcion} <br>
 									Precio: ${juego.precio} <br>
-									Categoria: ${juego.id_categoria} <br>                  
+									Categoria: ${juego.categoria.cat_nombre} <br>                  
 									Año de Estreno: ${juego.lanzamiento} <br>
                                                                         Calificacion : ${juego.calificacion} <br> <br>
                                                                         <a href="" class="btn btn-success" role="button" title="Agregar carrito" >Agregar al carrito</a><br><br> 
