@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +19,11 @@ public class Videojuego {
     private String titulo;
     private String desarrollador;
     private String descripcion;
-    private int id_categoria;
+    
+    @OneToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+    
     private int lanzamiento;
     private int id_consola = 1;
     private String portada = "portada1.jpg";
@@ -59,13 +65,15 @@ public class Videojuego {
         this.descripcion = descripcion;
     }
 
-    public int getId_categoria() {
-        return id_categoria;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
+
+    
 
     public int getLanzamiento() {
         return lanzamiento;
@@ -133,8 +141,10 @@ public class Videojuego {
 
     @Override
     public String toString() {
-        return "Videojuego{" + "id=" + id + ", titulo=" + titulo + ", desarrollador=" + desarrollador + ", descripcion=" + descripcion + ", id_categoria=" + id_categoria + ", lanzamiento=" + lanzamiento + ", id_consola=" + id_consola + ", portada=" + portada + ", precio=" + precio + ", stock=" + stock + ", calificacion=" + calificacion + ", uni_vendidas=" + uni_vendidas + ", url=" + url + '}';
+        return "Videojuego{" + "id=" + id + ", titulo=" + titulo + ", desarrollador=" + desarrollador + ", descripcion=" + descripcion + ", categoria=" + categoria + ", lanzamiento=" + lanzamiento + ", id_consola=" + id_consola + ", portada=" + portada + ", precio=" + precio + ", stock=" + stock + ", calificacion=" + calificacion + ", uni_vendidas=" + uni_vendidas + ", url=" + url + '}';
     }
+
+    
 
     
 }

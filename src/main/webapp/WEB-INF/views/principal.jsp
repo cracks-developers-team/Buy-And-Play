@@ -99,9 +99,8 @@
                             <img class="img-rounded" src="${urlResources}/images/${juego.portada}" alt="Generic placeholder image" width="150" height="200">
                             <h4>${juego.titulo}</h4>
                             <h4>
-                                <span class="label label-default">C</span>
-                                <span class="label label-default">${juego.precio} min</span>
-                                <span class="label label-default">${juego.id_categoria}</span>
+                                <span class="label label-default">$${juego.precio}</span>
+                                <span class="label label-default">${juego.categoria.cat_nombre}</span>
                             </h4>         
                             <p><a class="btn btn-sm btn-primary" href="detalle?idJuego=${juego.id}" role="button">Detalles &raquo;</a></p>
                         </div>

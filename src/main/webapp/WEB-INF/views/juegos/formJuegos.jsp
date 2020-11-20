@@ -41,7 +41,7 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="titulo">Título</label>
-                            <form:hidden path="id"/>
+                           <form:hidden path="id"/>
                             <form:input type="text" class="form-control" path="titulo" id="titulo" required="required" />
                         </div>  
                     </div>
@@ -60,7 +60,7 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="categoria" class="control-label">Categoria</label>              
-                            <form:select id="categoria" path="id_categoria" class="form-control">
+                            <form:select id="categoria" path="categoria.cat_id" class="form-control">
                                 <form:option value="1">FPS</form:option>
                                 <form:option value="2">RPG</form:option>
                                 <form:option value="3">Survival Horror</form:option>
