@@ -16,5 +16,10 @@ public class UsuariosServiceJPA implements IUsuariosServices{
     public void guardar(Usuario usuario) {
         usuariosRepo.save(usuario);
     }
+
+    @Override
+    public Usuario buscarPorUsername(String username) {
+       return usuariosRepo.findByUsername(username);
+    }
     
 }

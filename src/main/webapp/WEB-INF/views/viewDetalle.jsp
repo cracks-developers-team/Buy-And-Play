@@ -11,6 +11,7 @@
 		<meta name="author" content="">
 		<title>Detalles de la pelicula</title>
                 <spring:url value="/resources" var="urlResources"></spring:url>
+                <spring:url value="/" var="urlRoot"></spring:url>
 		<link href="${urlResources}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="${urlResources}/bootstrap/css/theme.css" rel="stylesheet">
 
@@ -48,7 +49,7 @@
 									Categoria: ${juego.categoria.cat_nombre} <br>                  
 									Año de Estreno: ${juego.lanzamiento} <br>
                                                                         Calificacion : ${juego.calificacion} <br> <br>
-                                                                        <a href="" class="btn btn-success" role="button" title="Agregar carrito" >Agregar al carrito</a><br><br> 
+                                                                        <a href="${urlRoot}orders/pedir?idjuego=${juego.id}" class="btn btn-success" role="button" title="Agregar carrito" >Agregar al carrito</a><br><br> 
                                                                         <a href="" class="btn btn-success" role="button" title="Lista de deseos" >Lista de deseos</a><br><br>
 
 
