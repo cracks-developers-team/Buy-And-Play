@@ -4,6 +4,7 @@ import com.buyandplay.model.Orden;
 import com.buyandplay.model.Usuario;
 import com.buyandplay.model.Videojuego;
 import com.buyandplay.services.IJuegosService;
+import com.buyandplay.services.IOrdenService;
 import com.buyandplay.services.IUsuariosServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -18,31 +19,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/orders")
 public class OrdenesController {
     
+    @Autowired
+    private IOrdenService ordenService;
+    
     private Orden orden = null;
     
     @Autowired
     private IUsuariosServices usuariosService;
     
     @Autowired
-    private IJuegosService juegosService;
-
-    public OrdenesController() {
-        orden = new Orden();
-    }
-    
-    private void setJuegoUsuario(Videojuego juego,Usuario usuario){
-        
-        orden.setUsu_id(usuario);
-        
-        orden.setProd_id(juego);
-    }
-    
-    private void setDireccionTipo(String dirrecion, String tipo){
-        orden.setDireccion_entrega(dirrecion);
-        orden.setTipo_pago(tipo);
-    }
-    
-    
+    private IJuegosService juegosService; 
     
     
     @GetMapping("/pedir")
@@ -62,6 +48,23 @@ public class OrdenesController {
         System.out.println("Direccion: " + direccion + "\nPago: " + tipo_pago);
         setDireccionTipo(direccion, tipo_pago);
         System.out.println("Orden: " + orden);
+        ordenService.guardar(orden);
         return "redirect:/";
+    }
+    
+    public OrdenesController() {
+        orden = new Orden();
+    }
+    
+    private void setJuegoUsuario(Videojuego juego,Usuario usuario){
+        
+        orden.setUsu_id(usuario);
+        
+        orden.setProd_id(juego);
+    }
+    
+    private void setDireccionTipo(String dirrecion, String tipo){
+        orden.setDireccion_entrega(dirrecion);
+        orden.setTipo_pago(tipo);
     }
 }

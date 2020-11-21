@@ -12,7 +12,8 @@
         <!-- Declaramos todos los recursos que estaran protegidos -->
         <intercept-url pattern="/games/*" access="hasAnyAuthority('ADMINISTRACION')" />
         <intercept-url pattern="/refund/*" access="hasAnyAuthority('CLIENTE','ADMINISTRACION')" />
-        <intercept-url pattern="/banners/*" access="hasAnyAuthority('ADMINISTRACION')"/> 
+        <intercept-url pattern="/banners/*" access="hasAnyAuthority('ADMINISTRACION')"/>
+        <intercept-url pattern="/orders/*" access="hasAnyAuthority('CLIENTE')" /> 
         
         <form-login login-page="/formLogin"/>
     </http>

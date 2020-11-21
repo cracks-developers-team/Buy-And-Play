@@ -19,9 +19,11 @@
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/tiendavideojuegos?useSSL=false" />
+		<property name="url" value="jdbc:mysql://localhost:3306/tiendavideojuegos?useSSL=false" /> 
+		<!-- <property name="url" value="jdbc:mysql://node236800-buyandplay.phx.enscaled.us:3306/tiendavideojuegos?useSSL=false" />-->
 		<property name="username" value="root" />
-		<property name="password" value="12345678" />
+		<!-- <property name="password" value="qK51Wr5IxL" />-->
+		<property name="password" value="12345678" /> 
 	</bean>
 	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="generateDdl" value="false" />
