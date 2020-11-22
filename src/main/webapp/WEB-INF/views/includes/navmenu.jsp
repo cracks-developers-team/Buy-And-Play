@@ -38,6 +38,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">   
+            <li><a href="${urlRoot}orders/mispedidos">Mis pedidos</a></li>   
             <li><a href="${urlRoot}user/Logout">Logout</a></li>            
           </ul>
         </div><!--/.nav-collapse -->

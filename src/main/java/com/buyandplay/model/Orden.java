@@ -1,6 +1,7 @@
 package com.buyandplay.model;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,13 +19,15 @@ public class Orden {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @ManyToOne
-    @JoinColumn(name = "usu_id")
-    private Usuario usu_id;
+    //@ManyToOne
+    //@JoinColumn(name = "usu_id")
+    @Column(name = "usu_id")
+    private int usuid;
     
-    @OneToOne
-    @JoinColumn(name = "prod_id")
-    private Videojuego prod_id;
+    //@OneToOne
+    //@JoinColumn(name = "prod_id")
+    @Column(name = "prod_id")
+    private int prodid;
     
     private int cantidad = 1;
     
@@ -42,20 +45,20 @@ public class Orden {
         this.id = id;
     }
 
-    public Usuario getUsu_id() {
-        return usu_id;
+    public int getUsuid() {
+        return usuid;
     }
 
-    public void setUsu_id(Usuario usu_id) {
-        this.usu_id = usu_id;
+    public void setUsuid(int usuid) {
+        this.usuid = usuid;
     }
 
-    public Videojuego getProd_id() {
-        return prod_id;
+    public int getProdid() {
+        return prodid;
     }
 
-    public void setProd_id(Videojuego prod_id) {
-        this.prod_id = prod_id;
+    public void setProdid(int prodid) {
+        this.prodid = prodid;
     }
 
     public int getCantidad() {
@@ -92,7 +95,7 @@ public class Orden {
 
     @Override
     public String toString() {
-        return "Orden{" + "id=" + id + ", usu_id=" + usu_id + ", prod_id=" + prod_id + ", cantidad=" + cantidad + ", direccion_entrega=" + direccion_entrega + ", tipo_pago=" + tipo_pago + ", fecha_pago=" + fecha_pago + '}';
+        return "Orden{" + "id=" + id + ", usu_id=" + usuid + ", prod_id=" + prodid + ", cantidad=" + cantidad + ", direccion_entrega=" + direccion_entrega + ", tipo_pago=" + tipo_pago + ", fecha_pago=" + fecha_pago + '}';
     }
     
     

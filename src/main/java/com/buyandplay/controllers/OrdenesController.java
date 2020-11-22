@@ -6,11 +6,14 @@ import com.buyandplay.model.Videojuego;
 import com.buyandplay.services.IJuegosService;
 import com.buyandplay.services.IOrdenService;
 import com.buyandplay.services.IUsuariosServices;
+import java.util.LinkedList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,7 +38,7 @@ public class OrdenesController {
     public String realizarPedido(@RequestParam("idjuego") int idJuego,Model modelo,Authentication authentication){
         
         Videojuego juego = juegosService.buscarPorId(idJuego);
-        setJuegoUsuario(juego,usuariosService.buscarPorUsername(authentication.getName()));
+        setJuegoUsuario(juego.getId(),usuariosService.buscarPorUsername(authentication.getName()).getId());
         System.out.println("orden: " + orden);
         modelo.addAttribute("juego", juego);
         
@@ -52,15 +55,54 @@ public class OrdenesController {
         return "redirect:/";
     }
     
+    @RequestMapping("/mispedidos")
+    public String misPedidos(Authentication authentication, Model modelo){
+        Usuario user = usuariosService.buscarPorUsername(authentication.getName());
+        List<Orden> ordenes = ordenService.buscarOrdenes(user.getId());
+        List<Videojuego> juegos = juegosService.buscarTodos();
+        List<Videojuego> juegosPedido = new LinkedList<>();
+        for(Orden o: ordenes){
+            for(Videojuego j: juegos){
+                if(o.getProdid() == j.getId()){
+                    juegosPedido.add(j);
+                }
+            }
+        }
+        modelo.addAttribute("juegos",juegosPedido);
+        modelo.addAttribute("ordenes" , ordenes);
+        return "ordenes/misPedidosLista";
+    }
+    
+    
+    @RequestMapping("/detalle/{id}")
+    public String detallePedido(@PathVariable("id") int ordenid, Model modelo,Authentication authentication){
+        
+        Usuario usuario = usuariosService.buscarPorUsername(authentication.getName());
+        Orden orden = ordenService.buscarPorId(ordenid);
+        List<Videojuego> juegos = juegosService.buscarTodos();
+        Videojuego juego = null;
+        for(Videojuego j: juegos){
+            if(j.getId() == orden.getProdid()){
+                juego = j;
+            }
+        }
+        
+        modelo.addAttribute("usuario", usuario);
+        modelo.addAttribute("juego", juego);
+        modelo.addAttribute("orden", orden);
+        
+        return "ordenes/detalles";
+    }
+    
     public OrdenesController() {
         orden = new Orden();
     }
     
-    private void setJuegoUsuario(Videojuego juego,Usuario usuario){
+    private void setJuegoUsuario(int juego,int usuario){
         
-        orden.setUsu_id(usuario);
+        orden.setUsuid(usuario);
         
-        orden.setProd_id(juego);
+        orden.setProdid(juego);
     }
     
     private void setDireccionTipo(String dirrecion, String tipo){
